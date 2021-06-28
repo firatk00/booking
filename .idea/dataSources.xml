@@ -19,7 +19,7 @@
         <property name="serverTimezone" value="UTC" />
       </driver-properties>
     </data-source>
-    <data-source source="LOCAL" name="booking@localhost" uuid="c3247bff-f99c-4f0d-96f4-7bc37a362a37">
+    <data-source source="LOCAL" name="booking@localhost" uuid="b338fedf-ac7a-4d5f-9eec-43b79777a171">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
