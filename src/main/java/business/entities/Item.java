@@ -5,4 +5,6 @@ public class Item {
     String id;
     String type;
     int roomId;
+
+
 }
