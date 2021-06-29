@@ -17,18 +17,18 @@ public class RoomMapper {
     {
         try (Connection connection = database.connect())
         {
-            String sql = "INSERT INTO users (email, password, role) VALUES (?, ?, ?)";
+            String sql = "INSERT INTO users (items, navn, id) VALUES (?, ?, ?)";
 
             try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS))
             {
-                ps.setString(1, user.getEmail());
-                ps.setString(2, user.getPassword());
-                ps.setString(3, user.getRole());
+                ps.setString(1, room.getItems());
+                ps.setString(2, room.getNavn());
+                ps.setString(3, room.getId());
                 ps.executeUpdate();
                 ResultSet ids = ps.getGeneratedKeys();
                 ids.next();
                 int id = ids.getInt(1);
-                user.setId(id);
+                room.getNavn();
             }
             catch (SQLException ex)
             {
@@ -56,12 +56,12 @@ public class RoomMapper {
                 {
                     String role = rs.getString("role");
                     int id = rs.getInt("id");
-                    User user = new User(email, password, role);
-                    user.setId(id);
-                    return user;
+                    Room room = new Room(items, navn, id);
+                    room.setId(id);
+                    return room;
                 } else
                 {
-                    throw new UserException("Could not validate user");
+                    throw new UserException("Could not validate Room");
                 }
             }
             catch (SQLException ex)
