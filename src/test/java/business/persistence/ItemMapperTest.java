@@ -1,5 +1,6 @@
 package business.persistence;
 
+import business.entities.Item;
 import business.entities.Room;
 import business.exceptions.UserException;
 import org.junit.jupiter.api.BeforeEach;
@@ -7,23 +8,24 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class RoomMapperTest {
-    RoomMapper roomMapper;
+class ItemMapperTest {
+    ItemMapper itemMapper;
     Database database;
-    Room room;
+    Item item;
     private final static String USER = "root";
     private final static String PASSWORD = "xohy2367?";
     private final static String URL = "jdbc:mysql://localhost:3306/booking?serverTimezone=CET";
-//TODO: husk at lave en test database booking_test
+
     @BeforeEach
     void setUp() throws ClassNotFoundException {
         database = new Database(USER, PASSWORD, URL);
-        roomMapper = new RoomMapper(database);
-        room = new Room("MakerLab", 210);
+        itemMapper = new ItemMapper(database);
+        //String udstyr, String id, String type, int roomId
+        item = new Item("Oculus Quest 2",	"vr-2",	"VR-headset",212);
     }
 
     @Test
-    void createRoom() throws UserException {
-        roomMapper.createRoom(room);
+    void createItem() throws UserException {
+        itemMapper.createItem(item);
     }
 }

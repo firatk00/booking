@@ -11,14 +11,17 @@ public class Booking {
     int userId;
     int itemId;
 
-    public Booking(int id, LocalDate bookingDate, int days, String comment, Boolean bookingStatus, int userId, int itemId) {
-        this.id = id;
+    public Booking(LocalDate bookingDate, int days, String comment, Boolean bookingStatus, int userId, int itemId) {
         this.bookingDate = bookingDate;
         this.days = days;
         this.comment = comment;
         this.bookingStatus = bookingStatus;
         this.userId = userId;
         this.itemId = itemId;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getId() {

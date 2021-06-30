@@ -17,18 +17,13 @@ public class RoomMapper {
     {
         try (Connection connection = database.connect())
         {
-            String sql = "INSERT INTO users (items, navn, id) VALUES (?, ?, ?)";
+            String sql = "INSERT INTO room (description, room_number) VALUES (?, ?)";
 
-            try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS))
+            try (PreparedStatement ps = connection.prepareStatement(sql))
             {
-                ps.setString(1, room.getItems());
-                ps.setString(2, room.getNavn());
-                ps.setString(3, room.getId());
+                ps.setString(1, room.getNavn());
+                ps.setInt(2, room.getId());
                 ps.executeUpdate();
-                ResultSet ids = ps.getGeneratedKeys();
-                ids.next();
-                int id = ids.getInt(1);
-                room.getNavn();
             }
             catch (SQLException ex)
             {
@@ -40,7 +35,7 @@ public class RoomMapper {
             throw new UserException(ex.getMessage());
         }
     }
-
+/*
     public User login(String email, String password) throws UserException
     {
         try (Connection connection = database.connect())
@@ -74,5 +69,5 @@ public class RoomMapper {
             throw new UserException("Connection to database could not be established");
         }
     }
-
+*/
 }
