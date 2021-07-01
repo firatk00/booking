@@ -40,7 +40,7 @@ class BookingMapperTest {
         //int id, LocalDate bookingDate, int days, String comment, Boolean bookingStatus, int userId, int itemId
         //finde item, room og user.
         LocalDate bookingDate = LocalDate.now();
-        booking = new Booking(bookingDate, 10, "hej", true, user.getId(), booking.getItemId());
+        booking = new Booking(booking.getBookingDate(), 10, "hej", true, user.getId(), booking.getItemId());
         bookingMapper.createBooking(booking);
     }
 }
