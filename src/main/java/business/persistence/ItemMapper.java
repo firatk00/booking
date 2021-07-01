@@ -5,6 +5,8 @@ import business.entities.Room;
 import business.entities.User;
 import business.exceptions.UserException;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ItemMapper {
     private Database database;
@@ -12,6 +14,12 @@ public class ItemMapper {
     public ItemMapper(Database database)
     {
         this.database = database;
+    }
+
+    public List<Item> getAllItems() {
+        List<Item> allItems = new ArrayList<>();
+        //TODO: lav sql der joiner item og room, next step joine med booking så man kan se om itemet er available
+        return allItems;
     }
 
     public void createItem(Item item) throws UserException

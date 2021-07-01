@@ -29,6 +29,14 @@ public abstract class Command
         commands.put("studentpage", new CommandProtectedPage("customerpage", "student"));
         commands.put("adminpage", new CommandProtectedPage("employeepage", "admin"));
         commands.put("showstudents", new ShowStudentsCommand("showstudentpage", "admin"));
+        //TODO: lav en knap i studentpage.jsp hvor action parameteren peger på showitems
+        //TODO: lav en showitems commando som bruger itemsmapperen som henter listen af alle items.
+        //TODO: stemple listen ind i request parameteren
+        //TODO: lav show items i jsp siden hvor listen hentes frem.
+        //commands.put("showitems", new ShowItemsCommand("showitemspage", "student"));
+        //TODO: i showitems pagen skal jeg lave en checkbox ud fra hvert item så det kan bookes
+        //TODO: showitems formen skal som action parameter så pege på bookitem commando
+        //commands.put("bookitem", new BookItemCommand("itembookedpage", "student"));
     }
 
     public static Command fromPath(

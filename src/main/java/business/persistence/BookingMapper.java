@@ -23,12 +23,12 @@ public class BookingMapper {
 
             try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS))
             {
-                ps.setDate(1, booking.getBookingDate());
-                ps.setString(2, user.getPassword());
-                ps.setString(3, user.getRole());
-                ps.setString(4, user.getEmail());
-                ps.setString(5, user.getPassword());
-                ps.setString(6, user.getRole());
+                ps.setDate(1, Date.valueOf(booking.getBookingDate()));
+                ps.setInt(2, booking.getDays());
+                ps.setString(3, booking.getComment());
+                ps.setBoolean(4, booking.getBookingStatus());
+                ps.setInt(5, booking.getUserId());
+                ps.setInt(6, booking.getItemId());
                 ps.executeUpdate();
                 ResultSet ids = ps.getGeneratedKeys();
                 ids.next();
