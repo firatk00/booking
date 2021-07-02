@@ -8,6 +8,7 @@ import business.exceptions.UserException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.sql.SQLException;
 import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -33,14 +34,17 @@ class BookingMapperTest {
         //String email, String password, String role
         user = new User("barbie@world.dk","jensen","student");
         user.setId(1);
+        booking = null;
     }
 
     @Test
-    void createBooking() throws UserException {
+    void createBooking() throws SQLException {
         //int id, LocalDate bookingDate, int days, String comment, Boolean bookingStatus, int userId, int itemId
         //finde item, room og user.
         LocalDate bookingDate = LocalDate.now();
-        booking = new Booking(booking.getBookingDate(), 10, "hej", true, user.getId(), booking.getItemId());
+        booking = new Booking(bookingDate, 10, "hej", true, user.getId(), item.getId());
         bookingMapper.createBooking(booking);
+
+
     }
 }

@@ -13,7 +13,7 @@ public class BookingMapper {
         this.database = database;
     }
 
-    public void createBooking(Booking booking) throws UserException
+    public void createBooking(Booking booking) throws SQLException
     {
         //booking = new Booking(bookingDate, 10, "hej", true, user.getId(), booking.getItemId());
         try (Connection connection = database.connect())
@@ -28,7 +28,7 @@ public class BookingMapper {
                 ps.setString(3, booking.getComment());
                 ps.setBoolean(4, booking.getBookingStatus());
                 ps.setInt(5, booking.getUserId());
-                ps.setInt(6, booking.getItemId());
+                ps.setString(6, booking.getItemId());
                 ps.executeUpdate();
                 ResultSet ids = ps.getGeneratedKeys();
                 ids.next();
@@ -37,12 +37,12 @@ public class BookingMapper {
             }
             catch (SQLException ex)
             {
-                throw new UserException(ex.getMessage());
+                throw new SQLException(ex.getMessage());
             }
         }
         catch (SQLException ex)
         {
-            throw new UserException(ex.getMessage());
+            throw new SQLException(ex.getMessage());
         }
     }
 }

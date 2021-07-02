@@ -9,9 +9,9 @@ public class Booking {
     String comment;
     Boolean bookingStatus;
     int userId;
-    int itemId;
+    String itemId;
 
-    public Booking(LocalDate bookingDate, int days, String comment, Boolean bookingStatus, int userId, int itemId) {
+    public Booking(LocalDate bookingDate, int days, String comment, Boolean bookingStatus, int userId, String itemId) {
         this.bookingDate = bookingDate;
         this.days = days;
         this.comment = comment;
@@ -48,7 +48,7 @@ public class Booking {
         return userId;
     }
 
-    public int getItemId() {
+    public String getItemId() {
         return itemId;
     }
 

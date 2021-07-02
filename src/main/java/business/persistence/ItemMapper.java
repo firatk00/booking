@@ -16,9 +16,36 @@ public class ItemMapper {
         this.database = database;
     }
 
-    public List<Item> getAllItems() {
+    public List<Item> getAllItems() throws SQLException {
         List<Item> allItems = new ArrayList<>();
+        try (Connection connection = database.connect())
+        {
+        //public Item(String udstyr, String id, String type, int roomId)
         //TODO: lav sql der joiner item og room, next step joine med booking så man kan se om itemet er available
+        String sql = "SELECT * FROM booking.item";
+        try (PreparedStatement ps = connection.prepareStatement(sql))
+        {
+            ResultSet rs = ps.executeQuery();
+            while (rs.next())
+            {
+                String udstyr = rs.getString("item_name");
+                String type = rs.getString("description");
+                String id = rs.getString("id");
+                int roomId = rs.getInt("room_id");
+                Item item = new Item(udstyr, id, type, roomId);
+                allItems.add(item);
+            }
+        }
+        catch (SQLException ex)
+        {
+            throw new SQLException(ex.getMessage());
+        }
+    }
+        catch (SQLException ex)
+    {
+        throw new SQLException("Connection to database could not be established");
+    }
+
         return allItems;
     }
 
