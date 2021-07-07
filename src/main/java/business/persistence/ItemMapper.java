@@ -1,6 +1,7 @@
 package business.persistence;
 
 import business.entities.Item;
+import business.entities.ItemDTO;
 import business.entities.Room;
 import business.entities.User;
 import business.exceptions.UserException;
@@ -73,6 +74,42 @@ public class ItemMapper {
         {
             throw new UserException(ex.getMessage());
         }
+    }
+
+    public List<ItemDTO> getAllBookedItems() throws SQLException {
+        List<ItemDTO> allItems = new ArrayList<>();
+        try (Connection connection = database.connect())
+        {
+            //TO DO lav et nyt objekt som kan transportere den her data ud i frontenden (DTO), det vil sige lav en ny entitet.
+            String sql = "SELECT b.booking_date,b.days,b.booking_status,i.item_name,i.description FROM booking AS b,item AS i\n" +
+                    "WHERE b.item_id=i.id;";
+            try (PreparedStatement ps = connection.prepareStatement(sql))
+            {
+                //Lav getAllBookedItems så det matcher nedstående
+                //# id, booking_date, days, booking_status, item_name, description
+                //'vr-2', '2021-07-02', '10', '1', 'Oculus Quest 2', 'VR-headset'
+                ResultSet rs = ps.executeQuery();
+                while (rs.next())
+                {
+                    String udstyr = rs.getString("item_name");
+                    String type = rs.getString("description");
+                    String id = rs.getString("id");
+                    String booking_date = rs.getString("booking_date");
+
+                    ItemDTO item = new ItemDTO(udstyr, id, type);
+                    allItems.add(item);
+                }
+            }
+            catch (SQLException ex)
+            {
+                throw new SQLException(ex.getMessage());
+            }
+        }
+        catch (SQLException ex)
+        {
+            throw new SQLException("Connection to database could not be established");
+        }
+        return allItems;
     }
 /*
     public User login(String email, String password) throws UserException

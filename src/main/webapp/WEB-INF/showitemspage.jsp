@@ -11,14 +11,21 @@
 
     <jsp:body>
         <h1>Hello ${sessionScope.email} </h1>
-        You are now logged in as a Customer of our wonderful site.
-        Role: ${sessionScope.role}
+        Her er en liste med alle studernde:
+        <table class="table table-striped">
+            <c:forEach var="item" items="${requestScope.itemsList}">
+                <tr>
+                    <td>${item.id}</td>
+                    <td>${item.udstyr}</td>
+                    <td>${item.roomId}</td>
+                    <td>${item.type}</td>
+                </tr>
 
+            </c:forEach>
 
-        <h1>Hello ${sessionScope.email} </h1>
-        Show All Items
+        </table>
 
-        <a href="${pageContext.request.contextPath}/fc/showitems"> Vis alle items </a>
     </jsp:body>
+
 </t:genericpage>
 

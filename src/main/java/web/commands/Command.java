@@ -3,6 +3,7 @@ package web.commands;
 import business.exceptions.UserException;
 import business.persistence.Database;
 
+import java.sql.SQLException;
 import java.util.HashMap;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -29,11 +30,11 @@ public abstract class Command
         commands.put("studentpage", new CommandProtectedPage("customerpage", "student"));
         commands.put("adminpage", new CommandProtectedPage("employeepage", "admin"));
         commands.put("showstudents", new ShowStudentsCommand("showstudentpage", "admin"));
-        //TODO: lav en knap i studentpage.jsp hvor action parameteren peger på showitems
+        //TODO: lav en knap i studentpage.jsp/customerpage hvor action parameteren peger på showitems
         //TODO: lav en showitems commando som bruger itemsmapperen som henter listen af alle items.
         //TODO: stemple listen ind i request parameteren
         //TODO: lav show items i jsp siden hvor listen hentes frem.
-        //commands.put("showitems", new ShowItemsCommand("showitemspage", "student"));
+        commands.put("showitems", new ShowItemsCommand("showitemspage", "student"));
         //TODO: i showitems pagen skal jeg lave en checkbox ud fra hvert item så det kan bookes
         //TODO: showitems formen skal som action parameter så pege på bookitem commando
         //commands.put("bookitem", new BookItemCommand("itembookedpage", "student"));
@@ -58,6 +59,6 @@ public abstract class Command
     public abstract String execute(
             HttpServletRequest request,
             HttpServletResponse response)
-            throws UserException;
+            throws UserException, SQLException;
 
 }
