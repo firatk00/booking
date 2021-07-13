@@ -2,6 +2,7 @@ package business.services;
 
 
 import business.entities.Item;
+import business.entities.ItemDTO;
 import business.persistence.Database;
 import business.persistence.ItemMapper;
 
@@ -21,7 +22,8 @@ public class ItemFacade {
         return itemMapper.getAllItems();
     }
 
-    public List<Item> getAllItemsWithDates() {
-        return itemMapper.getAllItemsWithDate();
+    public List<ItemDTO> getAllItemsWithDates() throws SQLException {
+
+        return itemMapper.getAllBookedItems();
     }
 }

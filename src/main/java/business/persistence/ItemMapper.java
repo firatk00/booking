@@ -4,6 +4,7 @@ import business.entities.Item;
 import business.entities.ItemDTO;
 import business.entities.Room;
 import business.entities.User;
+import business.entities.Booking;
 import business.exceptions.UserException;
 import java.sql.*;
 import java.util.ArrayList;
@@ -91,12 +92,14 @@ public class ItemMapper {
                 ResultSet rs = ps.executeQuery();
                 while (rs.next())
                 {
+                    String id = rs.getString("id");
+                    String bookingDate = rs.getString("booking_date");
+                    String days = rs.getString("days");
+                    String bookingStatus = rs.getString("booking_status");
                     String udstyr = rs.getString("item_name");
                     String type = rs.getString("description");
-                    String id = rs.getString("id");
-                    String booking_date = rs.getString("booking_date");
 
-                    ItemDTO item = new ItemDTO(udstyr, id, type);
+                    ItemDTO item = new ItemDTO(id, bookingDate, days, bookingStatus, udstyr, type);
                     allItems.add(item);
                 }
             }
