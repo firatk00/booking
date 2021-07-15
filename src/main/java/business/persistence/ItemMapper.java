@@ -6,7 +6,10 @@ import business.entities.Room;
 import business.entities.User;
 import business.entities.Booking;
 import business.exceptions.UserException;
+import java.time.LocalDate;
 import java.sql.*;
+import java.sql.Date;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -93,9 +96,11 @@ public class ItemMapper {
                 while (rs.next())
                 {
                     String id = rs.getString("id");
-                    String bookingDate = rs.getString("booking_date");
+                    //LocalDate bookingDate = sqlDate.toLocalDate(rs.getDate("booking_date"));
+                    Date bookingDate = rs.getDate("booking_date");
+                    LocalDate ld = bookingDate.toLocalDate();
                     String days = rs.getString("days");
-                    String bookingStatus = rs.getString("booking_status");
+                    Boolean bookingStatus = rs.getBoolean("booking_status");
                     String udstyr = rs.getString("item_name");
                     String type = rs.getString("description");
 

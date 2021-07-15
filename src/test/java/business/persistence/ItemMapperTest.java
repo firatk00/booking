@@ -1,11 +1,14 @@
 package business.persistence;
 
 import business.entities.Item;
+import business.entities.ItemDTO;
 import business.entities.Room;
 import business.exceptions.UserException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import sun.awt.geom.Crossings;
 
+import javax.validation.constraints.AssertTrue;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -56,6 +59,21 @@ class ItemMapperTest {
         int expected = 23;
         int actual = allItems.size();
         assertEquals(expected, actual);
+    }
+
+    @Test
+    void getAllBookedItems() throws SQLException {
+        List<ItemDTO> allbookeditems = itemMapper.getAllBookedItems();
+        Boolean ifBooked = true;
+        if (ifBooked = true) {
+            System.out.println("This item is booked");
+        }
+        else if (ifBooked = false) {
+            System.out.println("Not booked");
+
+        }
+
+
     }
 
 /*    @Test
