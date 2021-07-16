@@ -10,7 +10,7 @@ public class ItemDTO {
     String type;
     int roomId;
 
-    public ItemDTO(String bookingStatus, Date bookingDate, String udstyr, Boolean id, String type, String roomId) {
+    public ItemDTO(Boolean bookingStatus, Date bookingDate, String udstyr, String id, String type, int roomId) {
         this.bookingStatus = bookingStatus;
         this.bookingDate = bookingDate;
         this.udstyr = udstyr;
