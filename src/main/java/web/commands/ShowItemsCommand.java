@@ -5,6 +5,7 @@ import business.services.ItemFacade;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.sql.SQLException;
+import business.exceptions.UserException;
 
 public class ShowItemsCommand extends CommandProtectedPage {
 
@@ -16,7 +17,7 @@ public class ShowItemsCommand extends CommandProtectedPage {
     }
 
     @Override
-    public String execute(HttpServletRequest request, HttpServletResponse response) throws SQLException {
+    public String execute(HttpServletRequest request, HttpServletResponse response) throws SQLException, UserException {
         request.setAttribute("itemsList", itemFacade.getAllItems());
         request.setAttribute("itemsListWithDates", itemFacade.getAllItemsWithDates());
         return pageToShow;
