@@ -96,7 +96,6 @@ public class ItemMapper {
                 while (rs.next())
                 {
                     String id = rs.getString("id");
-                    //LocalDate bookingDate = sqlDate.toLocalDate(rs.getDate("booking_date"));
                     Date bookingDate = rs.getDate("booking_date");
                     LocalDate ld = bookingDate.toLocalDate();
                     String days = rs.getString("days");
@@ -104,7 +103,7 @@ public class ItemMapper {
                     String udstyr = rs.getString("item_name");
                     String type = rs.getString("description");
 
-                    ItemDTO item = new ItemDTO(id, bookingDate, days, bookingStatus, udstyr, type);
+                    ItemDTO item = new ItemDTO(bookingStatus, bookingDate, udstyr, days, id, type);
                     allItems.add(item);
                 }
             }

@@ -12,7 +12,7 @@ class BookingTest {
 
     @BeforeEach
     void setUp() {
-        booking = new Booking(LocalDate.now(), 5, "Hej", true, 1, "2");
+        booking = new Booking(LocalDate.now(), "5", "Hej", true, 1, "2");
     }
 
     @Test

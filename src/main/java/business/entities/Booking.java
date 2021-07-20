@@ -5,13 +5,13 @@ import java.time.LocalDate;
 public class Booking {
     int id;
     LocalDate bookingDate;
-    int days;
+    String days;
     String comment;
     Boolean bookingStatus;
     int userId;
     String itemId;
 
-    public Booking(LocalDate bookingDate, int days, String comment, Boolean bookingStatus, int userId, String itemId) {
+    public Booking(LocalDate bookingDate, String days, String comment, Boolean bookingStatus, int userId, String itemId) {
         this.bookingDate = bookingDate;
         this.days = days;
         this.comment = comment;
@@ -32,7 +32,7 @@ public class Booking {
         return bookingDate;
     }
 
-    public int getDays() {
+    public String getDays() {
         return days;
     }
 
