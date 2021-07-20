@@ -64,17 +64,8 @@ class ItemMapperTest {
     @Test
     void getAllBookedItems() throws SQLException {
         List<ItemDTO> allbookeditems = itemMapper.getAllBookedItems();
-        Boolean ifBooked = null;
-        if (ifBooked = true) {
-            System.out.println("This item is booked");
 
         }
-        else if (ifBooked = false) {
-            System.out.println("Not booked");
-
-        }
-
-
     }
 
 /*    @Test
