@@ -17,7 +17,7 @@ public class ItemFacade {
         this.itemMapper = new ItemMapper(database);
     }
 
-    public List<Item> getAllItems() throws SQLException {
+    public List<ItemDTO> getAllItems() throws SQLException {
 
         return itemMapper.getAllItems();
     }

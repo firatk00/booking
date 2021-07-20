@@ -21,24 +21,28 @@ public class ItemMapper {
         this.database = database;
     }
 
-    public List<Item> getAllItems() throws SQLException {
-        List<Item> allItems = new ArrayList<>();
+    public List<ItemDTO> getAllItems() throws SQLException {
+        List<ItemDTO> allItems = new ArrayList<>();
         try (Connection connection = database.connect())
         {
         //public Item(String udstyr, String id, String type, int roomId)
         //TODO: lav sql der joiner item og room, next step joine med booking så man kan se om itemet er available
-        String sql = "SELECT * FROM booking.item";
+        String sql = "SELECT i.id,b.booking_date,b.days,b.booking_status,i.item_name,i.description FROM booking AS b RIGHT JOIN item AS i ON b.item_id=i.id ORDER BY booking_date desc;";
         try (PreparedStatement ps = connection.prepareStatement(sql))
         {
             ResultSet rs = ps.executeQuery();
             while (rs.next())
             {
+                String id = rs.getString("id");
+                Date bookingDate = rs.getDate("booking_date");
+                LocalDate ld = bookingDate.toLocalDate();
+                String days = rs.getString("days");
+                Boolean bookingStatus = rs.getBoolean("booking_status");
                 String udstyr = rs.getString("item_name");
                 String type = rs.getString("description");
-                String id = rs.getString("id");
-                int roomId = rs.getInt("room_id");
-                Item item = new Item(udstyr, id, type, roomId);
-                allItems.add(item);
+
+                ItemDTO itemDTO = new ItemDTO(bookingStatus, bookingDate, udstyr, days, id, type);
+                allItems.add(itemDTO);
             }
         }
         catch (SQLException ex)
@@ -85,7 +89,7 @@ public class ItemMapper {
         try (Connection connection = database.connect())
         {
             //TO DO lav et nyt objekt som kan transportere den her data ud i frontenden (DTO), det vil sige lav en ny entitet.
-            String sql = "SELECT b.booking_date,b.days,b.booking_status,i.item_name,i.description FROM booking AS b,item AS i\n" +
+            String sql = "SELECT i.id,b.booking_date,b.days,b.booking_status,i.item_name,i.description FROM booking AS b,item AS i\n" +
                     "WHERE b.item_id=i.id;";
             try (PreparedStatement ps = connection.prepareStatement(sql))
             {

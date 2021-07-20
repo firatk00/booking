@@ -55,7 +55,8 @@ class ItemMapperTest {
     }
     @Test
     void testGetAllItems() throws SQLException {
-        List<Item> allItems = itemMapper.getAllItems();
+        List<ItemDTO> allItems = new ArrayList<>();
+        allItems = itemMapper.getAllItems();
         int expected = 23;
         int actual = allItems.size();
         assertEquals(expected, actual);
@@ -64,9 +65,11 @@ class ItemMapperTest {
     @Test
     void getAllBookedItems() throws SQLException {
         List<ItemDTO> allbookeditems = itemMapper.getAllBookedItems();
-
+        int expected = 1;
+        int actual = allbookeditems.size();
+        assertEquals(expected, actual);
         }
-    }
+}
 
 /*    @Test
     void createItem() throws UserException {
@@ -94,4 +97,3 @@ class ItemMapperTest {
         itemMapper.createItem(item21);
         itemMapper.createItem(item22);
     } */
-}
