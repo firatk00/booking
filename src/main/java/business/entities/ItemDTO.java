@@ -9,8 +9,9 @@ public class ItemDTO {
     String days;
     String id;
     String type;
+    int roomId;
 
-    public ItemDTO(Boolean bookingStatus, Date bookingDate, String udstyr, String days, String id, String type) {
+    public ItemDTO(Boolean bookingStatus, Date bookingDate, String udstyr, String days, String id, String type, int roomId) {
         this.bookingStatus = bookingStatus;
         this.bookingDate = bookingDate;
         this.udstyr = udstyr;

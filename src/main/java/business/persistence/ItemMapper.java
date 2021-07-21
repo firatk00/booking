@@ -27,7 +27,7 @@ public class ItemMapper {
         {
         //public Item(String udstyr, String id, String type, int roomId)
         //TODO: lav sql der joiner item og room, next step joine med booking så man kan se om itemet er available
-        String sql = "SELECT i.id,b.booking_date,b.days,b.booking_status,i.item_name,i.description FROM booking AS b RIGHT JOIN item AS i ON b.item_id=i.id ORDER BY booking_date desc;";
+        String sql = "SELECT i.room_id,i.id,b.booking_date,b.days,b.booking_status,i.item_name,i.description FROM booking AS b RIGHT JOIN item AS i ON b.item_id=i.id ORDER BY booking_date desc;";
         try (PreparedStatement ps = connection.prepareStatement(sql))
         {
             ResultSet rs = ps.executeQuery();
@@ -40,8 +40,9 @@ public class ItemMapper {
                 Boolean bookingStatus = rs.getBoolean("booking_status");
                 String udstyr = rs.getString("item_name");
                 String type = rs.getString("description");
+                int roomId = rs.getInt("room_id");
 
-                ItemDTO itemDTO = new ItemDTO(bookingStatus, bookingDate, udstyr, days, id, type);
+                ItemDTO itemDTO = new ItemDTO(bookingStatus, bookingDate, udstyr, days, id, type, roomId);
                 allItems.add(itemDTO);
             }
         }
@@ -106,8 +107,9 @@ public class ItemMapper {
                     Boolean bookingStatus = rs.getBoolean("booking_status");
                     String udstyr = rs.getString("item_name");
                     String type = rs.getString("description");
+                    int roomId = rs.getInt("room_id");
 
-                    ItemDTO item = new ItemDTO(bookingStatus, bookingDate, udstyr, days, id, type);
+                    ItemDTO item = new ItemDTO(bookingStatus, bookingDate, udstyr, days, id, type, roomId);
                     allItems.add(item);
                 }
             }

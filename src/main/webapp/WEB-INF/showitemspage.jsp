@@ -15,10 +15,10 @@
         <table class="table table-striped">
             <c:forEach var="item" items="${requestScope.itemsList}">
                 <tr>
-                    <td>${item.id}</td>
-                    <td>${item.udstyr}</td>
-                    <td>${item.roomId}</td>
-                    <td>${item.type}</td>
+                    <td>${itemDTO.id}</td>
+                    <td>${itemDTo.udstyr}</td>
+                    <td>${itemDTO.roomId}</td>
+                    <td>${itemDTO.type}</td>
                 </tr>
 
             </c:forEach>

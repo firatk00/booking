@@ -39,7 +39,7 @@ public abstract class Command
         commands.put("showitems", new ShowItemsCommand("showitemspage", "admin"));
         //TODO: i showitems pagen skal jeg lave en checkbox ud fra hvert item så det kan bookes
         //TODO: showitems formen skal som action parameter så pege på bookitem commando
-        //commands.put("bookitem", new BookItemCommand("itembookedpage", "student"));
+        commands.put("bookitem", new BookItemCommand("itembookedpage", "student"));
     }
 
     public static Command fromPath(
