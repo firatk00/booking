@@ -11,7 +11,7 @@
 
     <jsp:body>
         <h1>Hello ${sessionScope.email} </h1>
-        Her er en liste med alle studernde:
+        Her er en liste med alle studerende:
         <table class="table table-striped">
             <c:forEach var="student" items="${requestScope.studentList}">
                 <tr>

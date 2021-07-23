@@ -34,12 +34,12 @@ public abstract class Command
         //TODO: lav en showitems commando som bruger itemsmapperen som henter listen af alle items.
         //TODO: stemple listen ind i request parameteren
         //TODO: lav show items i jsp siden hvor listen hentes frem.
-        commands.put("showitems", new ShowItemsCommand("showitemspage", "student"));
+        commands.put("showitemsforstudent", new ShowItemsCommand("showitemspageforstudent", "student"));
         //TODO: LAV DET SAMME FOR ADMIN
-        //commands.put("showitems", new ShowItemsCommand("showitemspage", "admin"));
+        commands.put("showitems", new ShowItemsCommand("showitemspage", "admin"));
         //TODO: i showitems pagen skal jeg lave en checkbox ud fra hvert item så det kan bookes
         //TODO: showitems formen skal som action parameter så pege på bookitem commando
-        commands.put("bookitem", new BookItemCommand("itembookedpage", "student"));
+        //commands.put("bookitem", new BookItemCommand("itembookedpage", "student"));
     }
 
     public static Command fromPath(
