@@ -34,13 +34,22 @@ public class ItemMapper {
             while (rs.next())
             {
                 String id = rs.getString("id");
-                Date bookingDate = rs.getDate("booking_date");
-                LocalDate ld = bookingDate.toLocalDate();
+                //Date bookingDate = rs.getDate("booking_date");
+                //LocalDate ld = bookingDate.toLocalDate();
                 String days = rs.getString("days");
-                Boolean bookingStatus = rs.getBoolean("booking_status");
+                //Boolean bookingStatus = rs.getBoolean("booking_status");
                 String udstyr = rs.getString("item_name");
                 String type = rs.getString("description");
                 int roomId = rs.getInt("room_id");
+
+                Date bookingDate = rs.getDate("booking_date");
+                LocalDate ld = null;
+                Boolean bookingStatus = null;
+                if (rs.wasNull()) {
+                    bookingDate = null;
+                } else {
+                    ld = bookingDate.toLocalDate();
+                }
 
                 ItemDTO itemDTO = new ItemDTO(bookingStatus, bookingDate, udstyr, days, id, type, roomId);
                 allItems.add(itemDTO);
@@ -101,13 +110,22 @@ public class ItemMapper {
                 while (rs.next())
                 {
                     String id = rs.getString("id");
-                    Date bookingDate = rs.getDate("booking_date");
-                    LocalDate ld = bookingDate.toLocalDate();
+                    //Date bookingDate = rs.getDate("booking_date");
+                    //LocalDate ld = bookingDate.toLocalDate();
                     String days = rs.getString("days");
-                    Boolean bookingStatus = rs.getBoolean("booking_status");
+                    //Boolean bookingStatus = rs.getBoolean("booking_status");
                     String udstyr = rs.getString("item_name");
                     String type = rs.getString("description");
                     int roomId = rs.getInt("room_id");
+
+                    Date bookingDate = rs.getDate("booking_date");
+                    LocalDate ld = null;
+                    Boolean bookingStatus = null;
+                    if (rs.wasNull()) {
+                        bookingDate = null;
+                    } else {
+                        ld = bookingDate.toLocalDate();
+                    }
 
                     ItemDTO item = new ItemDTO(bookingStatus, bookingDate, udstyr, days, id, type, roomId);
                     allItems.add(item);
