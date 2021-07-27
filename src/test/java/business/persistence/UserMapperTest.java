@@ -5,6 +5,8 @@ import business.exceptions.UserException;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import javax.persistence.Id;
 import java.sql.SQLException;
 import java.sql.Statement;
 import static org.junit.jupiter.api.Assertions.*;
@@ -83,5 +85,10 @@ public class UserMapperTest {
         userMapper.createUser( original );
         User retrieved = userMapper.login( "king@kong.com", "uhahvorhemmeligt" );
         assertEquals( "konge", retrieved.getRole() );
+    }
+
+    @Test
+    void getUserPoints() throws UserException {
+
     }
 }

@@ -4,19 +4,19 @@
 
 <t:genericpage>
     <jsp:attribute name="header">
-         Demo Page for Customer Roles
+         Demo Side for Student
     </jsp:attribute>
     <jsp:attribute name="footer">
     </jsp:attribute>
 
     <jsp:body>
         <h1>Hello ${sessionScope.email} </h1>
-        You are now logged in as a Student of our wonderful site.
+        Du er nu logget ind som Student.
         Role: ${sessionScope.role}
 
 
         <h1>Hello ${sessionScope.email} </h1>
-        Show All Items
+        Vis/Book Udstyr
 
         <a href="${pageContext.request.contextPath}/fc/showitemsforstudent"> Vis alle items </a>
     </jsp:body>

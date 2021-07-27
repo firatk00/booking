@@ -1,10 +1,12 @@
 package web.commands;
 
+import business.entities.User;
 import business.exceptions.UserException;
 import business.services.ItemFacade;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.sql.SQLException;
 
 public class BookItemCommand extends CommandProtectedPage {
@@ -23,8 +25,13 @@ public class BookItemCommand extends CommandProtectedPage {
         String itemId = request.getParameter("bookitem");
         if ( itemFacade.isItemBookable(itemId) )
     {
+        boolean item = itemFacade.isItemBookable(itemId);
+        HttpSession session = request.getSession();
+
+        session.setAttribute("bookitem", itemId);
+        return itemId;
         //TODO: hvis bookable så lad bookingFacade booke
-        //TODO: itemFacade.createBooking(booking_date, days, comment, booking_status
+        //TODO: itemFacade.createBooking(bookingDate, days, comment, bookingStatus, userId, itemId);
         //TODO: skal kunne opdaterer students points sammetidig
         //add.
     }

@@ -17,7 +17,7 @@
         <div>
             <h2>Booking af udstyr</h2>
             <div style="margin-top: 3em;margin-bottom: 3em;">
-                Det her er start siden
+                Velkommen, det her er start siden til Booking af skolens udstyr.
             </div>
 
             <c:if test="${sessionScope.role == 'employee' }">

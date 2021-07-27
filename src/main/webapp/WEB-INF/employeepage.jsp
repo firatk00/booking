@@ -4,18 +4,18 @@
 
 <t:genericpage>
     <jsp:attribute name="header">
-         Demo Page for Employee Roles
+         Demo side for Admin
     </jsp:attribute>
     <jsp:attribute name="footer">
     </jsp:attribute>
     <jsp:body>
         <h1>Hello ${sessionScope.email} </h1>
-        You are now logged in as a EMPLOYEE of our wonderful site.
+        Du er nu logget på som Admin.
 
         <a href="${pageContext.request.contextPath}/fc/showstudents"> Vis alle studerende </a>
 
         <h1>Hello ${sessionScope.email} </h1>
-        Show All Items
+        Vis/Book Udstyr
 
         <a href="${pageContext.request.contextPath}/fc/showitems"> Vis alle items </a>
     </jsp:body>

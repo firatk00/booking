@@ -28,7 +28,6 @@ public class UserFacade
 
     public int getUserPoints(int id) {
             //TODO: få min UserMapper til at give mig point ud fra id
-
         return 10;
     }
 }
