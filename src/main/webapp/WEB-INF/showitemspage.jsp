@@ -4,7 +4,7 @@
 
 <t:genericpage>
     <jsp:attribute name="header">
-         Demo Page for Customer Roles
+         Du er logget på som Admin
     </jsp:attribute>
     <jsp:attribute name="footer">
     </jsp:attribute>
@@ -13,18 +13,21 @@
 
         Her er en liste med alle Udstyr:
         <table class="table table-striped">
-            <c:forEach var="item" items="${requestScope.getAllItems}">
+            <form action="bookitem" method="post">
+                <c:forEach var="item" items="${requestScope.itemsList}">
                 <tr>
-                    <td>${itemDTO.id}</td>
-                    <td>${itemDTO.udstyr}</td>
-                    <td>${itemDTO.roomId}</td>
-                    <td>${itemDTO.type}</td>
+                    <td><input type="radio" name="bookitem" value="${item.id}"></td>
+                    <td>${item.id}</td>
+                    <td>${item.udstyr}</td>
+                    <td>${item.roomId}</td>
+                    <td>${item.type}</td>
                 </tr>
 
             </c:forEach>
 
         </table>
-
+        <input type="submit" value="Book Item">
+            </form>
     </jsp:body>
 
 </t:genericpage>

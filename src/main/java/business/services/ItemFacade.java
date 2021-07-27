@@ -26,4 +26,9 @@ public class ItemFacade {
 
         return itemMapper.getAllBookedItems();
     }
+    public boolean isItemBookable(String itemId) throws SQLException {
+
+        //TODO: Slå itemId op i database eller liste
+        return true;
+    }
 }

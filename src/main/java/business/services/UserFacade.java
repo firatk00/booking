@@ -21,9 +21,14 @@ public class UserFacade
 
     public User createUser(String email, String password) throws UserException
     {
-        User user = new User(email, password, "customer");
+        User user = new User(email, password, "student");
         userMapper.createUser(user);
         return user;
     }
 
+    public int getUserPoints(int id) {
+            //TODO: få min UserMapper til at give mig point ud fra id
+
+        return 10;
+    }
 }

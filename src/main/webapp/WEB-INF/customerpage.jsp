@@ -11,14 +11,14 @@
 
     <jsp:body>
         <h1>Hello ${sessionScope.email} </h1>
-        You are now logged in as a Customer of our wonderful site.
+        You are now logged in as a Student of our wonderful site.
         Role: ${sessionScope.role}
 
 
         <h1>Hello ${sessionScope.email} </h1>
         Show All Items
 
-        <a href="${pageContext.request.contextPath}/fc/showitems"> Vis alle items </a>
+        <a href="${pageContext.request.contextPath}/fc/showitemsforstudent"> Vis alle items </a>
     </jsp:body>
 </t:genericpage>
 
