@@ -3,6 +3,7 @@ package business.services;
 
 import business.entities.Item;
 import business.entities.ItemDTO;
+import business.entities.User;
 import business.persistence.Database;
 import business.persistence.ItemMapper;
 
