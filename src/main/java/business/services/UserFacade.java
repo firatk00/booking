@@ -26,7 +26,8 @@ public class UserFacade
         return user;
     }
 
-    public int getUserPoints(int id) {
+    public int getUserPoints(int id) throws UserException {
+        userMapper.getUserPoints("id");
             //TODO: få min UserMapper til at give mig point ud fra id
         return 10;
     }

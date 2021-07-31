@@ -19,7 +19,6 @@ public class ShowItemsCommand extends CommandProtectedPage {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws SQLException {
         request.setAttribute("itemsList", itemFacade.getAllItems());
-        //ved ikke med den her
         //request.setAttribute("itemsListWithDates", itemFacade.getAllItemsWithDates());
         return pageToShow;
     }
