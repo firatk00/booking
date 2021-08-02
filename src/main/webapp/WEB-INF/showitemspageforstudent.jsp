@@ -17,6 +17,7 @@
                 <c:forEach var="item" items="${requestScope.itemsList}">
                  <tr>
                      <td><input type="radio" name="bookitem" value="${item.id}"></td>
+
                         <td>${item.id}</td>
                         <td>${item.udstyr}</td>
                         <td>${item.roomId}</td>
@@ -26,6 +27,7 @@
                 </c:forEach>
 
         </table>
+        <input type="text" name="bookitemdays" value="10"/>
         <input type="submit" value="Book Item">
             </form>
     </jsp:body>

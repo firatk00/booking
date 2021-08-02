@@ -18,12 +18,15 @@ public class BookingFacade {
     private Database database;
 
     public BookingFacade(Database database) {
+
         this.bookingMapper = new BookingMapper(database);
     }
+    public void createBooking(Booking booking) throws SQLException {
+        bookingMapper.createBooking(booking);
 
-    public boolean isItemBooked(String itemId) throws SQLException {
-        boolean Null;
-        //TODO: Slå itemId op i database eller liste
-        return true;
     }
 }
+/*public boolean isItemBooked(String itemId) throws SQLException {
+        boolean Null;
+        //TODO: Slå itemId op i database eller liste
+        return true;*/

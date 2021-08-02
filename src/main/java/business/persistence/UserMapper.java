@@ -75,21 +75,21 @@ public class UserMapper
             throw new UserException("Connection to database could not be established");
         }
     }
-
-    public String getUserPoints (String id) throws UserException
+    public int getUserPoints (int userId) throws UserException
     {
         try (Connection connection = database.connect())
         {
-            String sql = "SELECT id FROM users";
+            String sql = "SELECT point FROM users WHERE id = ?";
 
             try (PreparedStatement ps = connection.prepareStatement(sql))
             {
-                ps.setString(10, id);
+                ps.setInt(1, userId);
                 ResultSet rs = ps.executeQuery();
                 if (rs.next())
                 {
-                    id = rs.getString("id");
-                    return id;
+
+                    int point = rs.getInt("point");
+                    return point;
                 } else
                 {
                     throw new UserException("Didnt give 10 user points");
