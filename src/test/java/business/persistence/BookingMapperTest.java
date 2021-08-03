@@ -29,10 +29,10 @@ class BookingMapperTest {
     void setUp() throws ClassNotFoundException {
         database = new Database(USER, PASSWORD, URL);
         bookingMapper = new BookingMapper(database);
-        room = new Room("MediaLab",212);
-        item = new Item("Oculus Quest 2",	"vr-2",	"VR-headset",212);
+        room = new Room("MediaLab", 212);
+        item = new Item("Oculus Quest 2", "vr-2", "VR-headset", 212);
         //String email, String password, String role
-        user = new User("barbie@world.dk","jensen","student");
+        user = new User("barbie@world.dk", "jensen", "student");
         user.setId(1);
         booking = null;
     }
@@ -42,9 +42,7 @@ class BookingMapperTest {
         //int id, LocalDate bookingDate, int days, String comment, Boolean bookingStatus, int userId, int itemId
         //finde item, room og user.
         LocalDate bookingDate = LocalDate.now();
-        booking = new Booking(bookingDate, "10", "hej", true, user.getId(), item.getId());
+        booking = new Booking(bookingDate, 10, "hej", true, user.getId(), item.getId());
         bookingMapper.createBooking(booking);
-
-
     }
 }
