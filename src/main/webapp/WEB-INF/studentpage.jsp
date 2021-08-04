@@ -14,8 +14,6 @@
         Du er nu logget ind som Student.
         Role: ${sessionScope.role}
 
-
-        <h1>Hello ${sessionScope.email} </h1>
         Vis/Book Udstyr
 
         <a href="${pageContext.request.contextPath}/fc/showitemsforstudent"> Vis alle items </a>

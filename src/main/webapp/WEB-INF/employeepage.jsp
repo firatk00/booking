@@ -14,7 +14,6 @@
 
         <a href="${pageContext.request.contextPath}/fc/showstudents"> Vis alle studerende </a>
 
-        <h1>Hello ${sessionScope.email} </h1>
         Vis/Book Udstyr
 
         <a href="${pageContext.request.contextPath}/fc/showitems"> Vis alle items </a>
